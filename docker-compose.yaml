@@ -26,4 +26,4 @@ services:
       - BROWSER=chrome
       - MODULE=TestNG.xml
     volumes:
-      - ./output/search-result:/usr/share/udemy/test-output   
+      - ./output/TestNG-result:/usr/share/classplus/store/test-output   
