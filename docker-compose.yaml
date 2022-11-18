@@ -25,5 +25,6 @@ services:
       - HUB_HOST=hub
       - BROWSER=chrome
       - MODULE=TestNG.xml
+      - REMOTE_DRIVER=true
     volumes:
       - ./output/TestNG-result:/usr/share/classplus/store/test-output   
