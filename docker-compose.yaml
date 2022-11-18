@@ -3,7 +3,8 @@ services:
   hub:
     image: selenium/hub:3.14
   chrome:
-    image: selenium/node-chrome:3.14      
+    image: selenium/node-chrome:3.14 
+    shm_size: '1gb'
     depends_on:
       - hub
     environment:
@@ -16,24 +17,13 @@ services:
     environment:
       - HUB_HOST=hub
   search-module:
-    image: abhishekneela/b2b-automation-docker
-    depends_on:
-      - chrome
-      - firefox
-    environment:
-      - HUB_HOST=hub
-      - BROWSER=firefox
-      - MODULE=search-module.xml
-    volumes:
-      - ./output/search-result:/usr/share/udemy/test-output      
-  book-flight-module:
-    image: abhishekneela/b2b-automation-docker
+    image: abhishekneela/b2b-automation-classplus-store-docker
     depends_on:
       - chrome
       - firefox
     environment:
       - HUB_HOST=hub
       - BROWSER=chrome
-      - MODULE=book-flight-module.xml
+      - MODULE=TestNG.xml
     volumes:
-      - ./output/book-result:/usr/share/udemy/test-output   
+      - ./output/search-result:/usr/share/udemy/test-output   
