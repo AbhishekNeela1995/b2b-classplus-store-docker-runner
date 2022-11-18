@@ -13,7 +13,7 @@ pipeline{
 		}
 		stage("Run Test"){
 			steps{
-				bat "docker-compose up TestNG true"
+				bat "docker-compose up TestNG"
 			}
 		}
 	}
