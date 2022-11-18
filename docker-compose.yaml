@@ -16,7 +16,7 @@ services:
       - hub
     environment:
       - HUB_HOST=hub
-  search-module:
+  TestNG:
     image: abhishekneela/b2b-automation-classplus-store-docker
     depends_on:
       - chrome
