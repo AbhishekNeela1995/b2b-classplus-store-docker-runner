@@ -3,7 +3,7 @@ pipeline{
 	stages{
 		stage("Pull Latest Image"){
 			steps{
-				bat "docker pull abhishekneela/b2b-automation-docker"
+				bat "docker pull abhishekneela/b2b-automation-classplus-store-docker"
 			}
 		}
 		stage("Start Grid"){
@@ -13,7 +13,7 @@ pipeline{
 		}
 		stage("Run Test"){
 			steps{
-				bat "docker-compose up search-module book-flight-module"
+				bat "docker-compose up TestNG"
 			}
 		}
 	}
@@ -21,7 +21,6 @@ pipeline{
 		always{
 			archiveArtifacts artifacts: 'output/**'
 			bat "docker-compose down"
-			bat "sudo rm -rf output/"
 		}
 	}
 }
