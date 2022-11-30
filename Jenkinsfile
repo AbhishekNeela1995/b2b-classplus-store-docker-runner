@@ -16,6 +16,19 @@ pipeline{
 				bat "docker-compose up TestNG"
 			}
 		}
+		stage('reports') {
+    			steps {
+    			script {
+            			allure([
+                    			includeProperties: false,
+                    			jdk: '',
+                    			properties: [],
+                    			reportBuildPolicy: 'ALWAYS',
+                    			results: [[path: 'target/allure-results']]
+            			])
+    			}
+    			}
+		}
 	}
 	post{
 		always{
